@@ -6,7 +6,7 @@
   <div ng-controller="EventsCtrl">
     <div class="row">
       <div class="col-md-4">
-        <input type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
+        <input ng-change="filterEvents()" type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
       </div>
       <div class="col-md-8">
         <form class="form-inline" ng-submit="addEvent()">
@@ -38,7 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="event in events | filter : search">
+            <tr ng-repeat="event in events">
               <td>{{event.name}}</td>
               <td>{{event.event_date}}</td>
               <td>{{event.place}}</td>
